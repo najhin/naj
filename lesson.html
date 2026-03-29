@@ -3,60 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درس الرياضيات - Najhin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="درس الرياضيات">
+    <title>درس - Najhin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand"><i class="fas fa-calculator"></i><span>Najhin</span></div>
-            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <div class="nav-brand">
+                <i class="fas fa-calculator"></i>
+                <span>Najhin</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">الرئيسية</a></li>
                 <li><a href="tronc.html">جذع مشترك</a></li>
                 <li><a href="1bac.html">أولى باك</a></li>
                 <li><a href="2bac.html">ثانية باك</a></li>
-                <li class="theme-toggle-item"><button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                <li><button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
     <section class="page-header">
-        <nav class="breadcrumb" id="breadcrumb">
-            <a href="index.html">الرئيسية</a><span>/</span><a href="#" id="levelLink">المستوى</a><span>/</span><span id="lessonTitle">الدرس</span>
-        </nav>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <span>/</span>
+                <a href="#" id="levelLink">المستوى</a>
+                <span>/</span>
+                <span id="lessonTitle">الدرس</span>
+            </nav>
+        </div>
     </section>
 
-    <section class="lesson-content">
+    <!-- Lesson Content -->
+    <section class="lesson-section">
         <div class="container">
-            <div class="lesson-main">
-                <h1 id="lessonMainTitle">عنوان الدرس</h1>
-                <span class="level-badge" id="levelBadge">المستوى</span>
-                <p id="lessonDescription" class="lesson-description"></p>
-                <div class="video-section">
-                    <h2>فيديو الشرح</h2>
-                    <iframe id="lessonVideo" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+            <div class="lesson-grid">
+                <div class="lesson-main">
+                    <h1 id="lessonMainTitle">الدرس</h1>
+                    <div class="lesson-meta">
+                        <span class="lesson-level" id="levelBadge">المستوى</span>
+                        <span class="lesson-category" id="categoryBadge">الفئة</span>
+                    </div>
+
+                    <p id="lessonDescription" class="lesson-description"></p>
+
+                    <!-- Video Section -->
+                    <div class="video-section">
+                        <h2><i class="fas fa-video"></i> فيديو الشرح</h2>
+                        <div class="video-container">
+                            <iframe id="lessonVideo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- PDF Section -->
+                    <div class="pdf-section">
+                        <h2><i class="fas fa-file-pdf"></i> ملخص الدرس</h2>
+                        <div class="pdf-actions">
+                            <a href="#" id="pdfDownload" class="btn btn-primary" download><i class="fas fa-download"></i> تحميل ملخص</a>
+                            <a href="#" id="pdfView" class="btn btn-secondary" target="_blank"><i class="fas fa-eye"></i> عرض</a>
+                        </div>
+                    </div>
+
+                    <!-- Related Lessons -->
+                    <div class="related-section">
+                        <h2><i class="fas fa-link"></i> دروس ذات صلة</h2>
+                        <div id="relatedLessons" class="lessons-grid"></div>
+                    </div>
                 </div>
-                <div class="pdf-section">
-                    <h2>ملخص الدرس</h2>
-                    <a href="#" id="pdfDownload" class="btn">تحميل PDF</a>
-                    <a href="#" id="pdfView" class="btn" target="_blank">عرض PDF</a>
-                </div>
-                <section class="related-lessons">
-                    <h2>دروس ذات صلة</h2>
-                    <div class="lessons-grid" id="relatedLessons"></div>
-                </section>
+
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <div class="sidebar-card">
+                        <h3>معلومات الدرس</h3>
+                        <div class="info-item">
+                            <span class="label">المستوى:</span>
+                            <span id="infoLevel">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">الفئة:</span>
+                            <span id="infoCategory">-</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>تنقل سريع</h3>
+                        <a href="#" id="backToLevel" class="sidebar-link"><i class="fas fa-arrow-right"></i> العودة للمستوى</a>
+                        <a href="index.html" class="sidebar-link"><i class="fas fa-home"></i> الرئيسية</a>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Najhin - جميع الحقوق محفوظة</p>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Najhin</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', () => { displayLesson(); setupTheme(); setupMobileMenu(); });</script>
+    <script src="js/app.js"></script>
+    <script>displayLesson();</script>
 </body>
 </html>
