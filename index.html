@@ -1,34 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Najhin Educational Website</title>
+    <meta name="description" content="Najhin - منصة تعليمية متخصصة في تدريس الرياضيات للطلاب المغاربة">
+    <meta name="keywords" content="الرياضيات, تعليم, مغرب, دروس, باك">
+    <title>Najhin - تعلم الرياضيات بسهولة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Najhin Educational Website</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-calculator"></i>
+                <span>Najhin</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="tronc.html">جذع مشترك</a></li>
+                <li><a href="1bac.html">أولى باك</a></li>
+                <li><a href="2bac.html">ثانية باك</a></li>
+                <li class="theme-toggle-item">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main>
-        <section>
-            <h2>Featured Courses</h2>
-            <p>Explore our range of courses designed for all levels of learning.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Najhin</h1>
+                <p class="hero-subtitle">تعلم الرياضيات بسهولة ويسر</p>
+                <p class="hero-description">منصة تعليمية شاملة متخصصة في تدريس الرياضيات لطلاب المغرب</p>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="ابحث عن درس...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Container -->
+    <section id="searchResults" class="search-results hidden">
+        <div class="container">
+            <h2>نتائج البحث</h2>
+            <div id="resultsContainer" class="lessons-grid"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <!-- Level Cards Section -->
+        <section class="levels">
+            <div class="container">
+                <h2>اختر مستواك</h2>
+                <div class="levels-grid">
+                    <div class="level-card" onclick="window.location.href='tronc.html'">
+                        <div class="level-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>جذع مشترك</h3>
+                        <p>المفاهيم الأساسية والمتقدمة</p>
+                        <span class="level-badge">4 دروس</span>
+                    </div>
+                    <div class="level-card" onclick="window.location.href='1bac.html'">
+                        <div class="level-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>أولى باك</h3>
+                        <p>الحساب التفاضلي والمتتاليات</p>
+                        <span class="level-badge">4 دروس</span>
+                    </div>
+                    <div class="level-card" onclick="window.location.href='2bac.html'">
+                        <div class="level-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>ثانية باك</h3>
+                        <p>المعادلات والدوال المتقدمة</p>
+                        <span class="level-badge">4 دروس</span>
+                    </div>
+                </div>
+            </div>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Najhin Educational Website</p>
+        <!-- Latest Lessons Section -->
+        <section class="latest-lessons">
+            <div class="container">
+                <h2>أحدث الدروس</h2>
+                <div class="lessons-grid" id="latestLessons"></div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">مستويات تعليمية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">درس شامل</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">مجاني تماماً</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>ابدأ رحلتك التعليمية الآن</h2>
+                <p>انضم لآلاف الطلاب الذين يتعلمون الرياضيات معنا</p>
+                <button class="cta-button" onclick="document.querySelector('.levels').scrollIntoView({behavior: 'smooth'})">
+                    ابدأ التعلم
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Najhin</h4>
+                    <p>منصة تعليمية متخصصة في تدريس الرياضيات للطلاب المغاربة</p>
+                </div>
+                <div class="footer-section">
+                    <h4>الروابط</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="tronc.html">جذع مشترك</a></li>
+                        <li><a href="1bac.html">أولى باك</a></li>
+                        <li><a href="2bac.html">ثانية باك</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Najhin - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
     </footer>
-    <script src="js/scripts.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            displayLatestLessons();
+            setupSearch();
+            setupTheme();
+            setupMobileMenu();
+        });
+    </script>
 </body>
 </html>
