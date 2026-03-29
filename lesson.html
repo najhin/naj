@@ -3,119 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="درس الرياضيات">
+    <meta name="description" content="درس الرياضيات - Najhin">
+    <meta name="theme-color" content="#6366f1">
     <title>درس - Najhin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/premium.css">
+    <style>
+        .lesson-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .lesson-main-content {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .lesson-main-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-meta-info {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border: 2px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .video-section {
+            margin: 2rem 0;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .lesson-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .exercises-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .exercise-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .exercise-card:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-difficulty {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .difficulty-easy {
+            background: #10b981;
+            color: white;
+        }
+
+        .difficulty-medium {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .difficulty-hard {
+            background: #ef4444;
+            color: white;
+        }
+
+        .sidebar-lesson {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card-lesson {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-card-lesson h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item-small {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .related-lessons {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .lesson-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-lesson {
+                position: static;
+                top: auto;
+            }
+
+            .lesson-main-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-calculator"></i>
-                <span>Najhin</span>
+    <!-- NAVBAR -->
+    <nav class="navbar sticky-top">
+        <div class="container-fluid">
+            <div class="logo-section">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>Najhin</span>
+                </a>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
             </button>
-            <ul class="nav-menu" id="navMenu">
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">الرئيسية</a></li>
                 <li><a href="tronc.html">جذع مشترك</a></li>
                 <li><a href="1bac.html">أولى باك</a></li>
                 <li><a href="2bac.html">ثانية باك</a></li>
-                <li><button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                <li class="theme-toggle-nav">
+                    <button id="themeToggleNav" title="تبديل المظهر">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <section class="page-header">
-        <div class="container">
-            <nav class="breadcrumb">
-                <a href="index.html">الرئيسية</a>
+    <!-- PAGE HEADER -->
+    <section class="page-header-section">
+        <div class="container-fluid">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
                 <span>/</span>
                 <a href="#" id="levelLink">المستوى</a>
                 <span>/</span>
                 <span id="lessonTitle">الدرس</span>
-            </nav>
+            </div>
         </div>
     </section>
 
-    <!-- Lesson Content -->
+    <!-- LESSON CONTENT -->
     <section class="lesson-section">
-        <div class="container">
-            <div class="lesson-grid">
-                <div class="lesson-main">
+        <div class="container-fluid">
+            <div class="lesson-container">
+                <div class="lesson-main-content">
                     <h1 id="lessonMainTitle">الدرس</h1>
-                    <div class="lesson-meta">
-                        <span class="lesson-level" id="levelBadge">المستوى</span>
-                        <span class="lesson-category" id="categoryBadge">الفئة</span>
+                    
+                    <div class="lesson-meta-info">
+                        <span class="meta-badge"><i class="fas fa-layer-group"></i> <span id="lessonLevel">المستوى</span></span>
+                        <span class="meta-badge"><i class="fas fa-tag"></i> <span id="lessonCategory">الفئة</span></span>
+                        <span class="meta-badge"><i class="fas fa-star"></i> <span id="lessonRating">4.9</span> / 5</span>
                     </div>
 
-                    <p id="lessonDescription" class="lesson-description"></p>
+                    <p class="lesson-description" id="lessonDescription">وصف الدرس...</p>
 
-                    <!-- Video Section -->
+                    <!-- VIDEO SECTION -->
                     <div class="video-section">
-                        <h2><i class="fas fa-video"></i> فيديو الشرح</h2>
-                        <div class="video-container">
+                        <h2><i class="fas fa-play-circle"></i> فيديو الشرح</h2>
+                        <div class="video-frame">
                             <iframe id="lessonVideo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
+                        <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                            <i class="fas fa-info-circle"></i> يمكنك إعادة مشاهدة الفيديو في أي وقت
+                        </p>
                     </div>
 
-                    <!-- PDF Section -->
-                    <div class="pdf-section">
-                        <h2><i class="fas fa-file-pdf"></i> ملخص الدرس</h2>
-                        <div class="pdf-actions">
-                            <a href="#" id="pdfDownload" class="btn btn-primary" download><i class="fas fa-download"></i> تحميل ملخص</a>
-                            <a href="#" id="pdfView" class="btn btn-secondary" target="_blank"><i class="fas fa-eye"></i> عرض</a>
+                    <!-- DOWNLOAD SECTION -->
+                    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1)); padding: 1.5rem; border-radius: 12px; margin: 2rem 0;">
+                        <h2 style="margin-bottom: 1rem;"><i class="fas fa-file-pdf"></i> ملخص الدرس</h2>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="#" id="pdfDownload" class="btn btn-primary">
+                                <i class="fas fa-download"></i> تحميل ملخص PDF
+                            </a>
+                            <a href="#" id="pdfView" class="btn btn-outline" target="_blank">
+                                <i class="fas fa-eye"></i> عرض الملخص
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Related Lessons -->
-                    <div class="related-section">
+                    <!-- EXERCISES SECTION -->
+                    <div class="exercises-section">
+                        <h2><i class="fas fa-tasks"></i> التمارين الموصى بها</h2>
+                        <div id="exercisesContainer">
+                            <div class="exercise-card">
+                                <div class="exercise-header">
+                                    <span><strong>التمرين 1:</strong> حل المعادلة البسيطة</span>
+                                    <span class="exercise-difficulty difficulty-easy">سهل</span>
+                                </div>
+                                <p style="color: var(--text-light); font-size: 0.9rem;">تطبيق مباشر على المفاهيم الأساسية</p>
+                                <button class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">
+                                    <i class="fas fa-arrow-left"></i> ابدأ التمرين
+                                </button>
+                            </div>
+
+                            <div class="exercise-card">
+                                <div class="exercise-header">
+                                    <span><strong>التمرين 2:</strong> حل المعادلات من الدرجة الثانية</span>
+                                    <span class="exercise-difficulty difficulty-medium">متوسط</span>
+                                </div>
+                                <p style="color: var(--text-light); font-size: 0.9rem;">تطبيق متقدم على المفاهيم</p>
+                                <button class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">
+                                    <i class="fas fa-arrow-left"></i> ابدأ التمرين
+                                </button>
+                            </div>
+
+                            <div class="exercise-card">
+                                <div class="exercise-header">
+                                    <span><strong>التمرين 3:</strong> مسائل معقدة وشاملة</span>
+                                    <span class="exercise-difficulty difficulty-hard">صعب</span>
+                                </div>
+                                <p style="color: var(--text-light); font-size: 0.9rem;">تحديات متقدمة وأمثلة من الامتحانات</p>
+                                <button class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">
+                                    <i class="fas fa-arrow-left"></i> ابدأ التمرين
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RELATED LESSONS -->
+                    <div class="related-lessons">
                         <h2><i class="fas fa-link"></i> دروس ذات صلة</h2>
-                        <div id="relatedLessons" class="lessons-grid"></div>
+                        <div class="related-grid" id="relatedLessonsContainer">
+                            <!-- Related lessons will be loaded by JS -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- Sidebar -->
-                <aside class="lesson-sidebar">
-                    <div class="sidebar-card">
-                        <h3>معلومات الدرس</h3>
-                        <div class="info-item">
-                            <span class="label">المستوى:</span>
-                            <span id="infoLevel">-</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="label">الفئة:</span>
-                            <span id="infoCategory">-</span>
+                <!-- SIDEBAR -->
+                <aside class="sidebar-lesson">
+                    <!-- STATS CARD -->
+                    <div class="sidebar-card-lesson">
+                        <h3><i class="fas fa-chart-bar"></i> إحصائيات</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item-small">
+                                <div class="stat-value" id="statsStudents">3.2K</div>
+                                <div class="stat-label">طالب</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value" id="statsExercises">12</div>
+                                <div class="stat-label">تمرين</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value" id="statsVideos">1</div>
+                                <div class="stat-label">فيديو</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value" id="statsDuration">45 د</div>
+                                <div class="stat-label">المدة</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="sidebar-card">
-                        <h3>تنقل سريع</h3>
-                        <a href="#" id="backToLevel" class="sidebar-link"><i class="fas fa-arrow-right"></i> العودة للمستوى</a>
-                        <a href="index.html" class="sidebar-link"><i class="fas fa-home"></i> الرئيسية</a>
+                    <!-- RESOURCES CARD -->
+                    <div class="sidebar-card-lesson">
+                        <h3><i class="fas fa-book"></i> الموارد</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <a href="#" class="btn btn-primary btn-sm w-100">
+                                <i class="fas fa-download"></i> ملخص PDF
+                            </a>
+                            <a href="#" class="btn btn-outline btn-sm w-100">
+                                <i class="fas fa-bookmark"></i> حفظ الدرس
+                            </a>
+                            <a href="#" class="btn btn-outline btn-sm w-100">
+                                <i class="fas fa-share-alt"></i> مشاركة
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- TEACHER INFO CARD -->
+                    <div class="sidebar-card-lesson">
+                        <h3><i class="fas fa-user-tie"></i> المعلم</h3>
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 id="teacherName">أ. أحمد</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">خبرة 15 سنة</p>
+                            <button class="btn btn-outline btn-sm w-100">
+                                <i class="fas fa-envelope"></i> تواصل معه
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PROGRESS CARD -->
+                    <div class="sidebar-card-lesson">
+                        <h3><i class="fas fa-trophy"></i> التقدم</h3>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">
+                                0%
+                            </div>
+                            <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 1rem;">
+                                <div style="width: 0%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); transition: all 0.3s ease;"></div>
+                            </div>
+                            <p style="color: var(--text-light); font-size: 0.9rem;">أكمل التمارين لتقدم أفضل</p>
+                        </div>
                     </div>
                 </aside>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <!-- FOOTER -->
+    <footer class="footer-premium">
+        <div class="container-fluid">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4><i class="fas fa-rocket"></i> Najhin</h4>
+                    <p>منصة التعليم المغربية الأولى</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>المستويات</h4>
+                    <ul>
+                        <li><a href="tronc.html">جذع مشترك</a></li>
+                        <li><a href="1bac.html">أولى باك</a></li>
+                        <li><a href="2bac.html">ثانية باك</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#">عن Najhin</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>النشرة البريدية</h4>
+                    <input type="email" placeholder="بريدك الإلكتروني" class="email-input">
+                    <button class="btn btn-primary btn-sm">اشترك</button>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Najhin</p>
+                <p>&copy; 2026 Najhin - جميع الحقوق محفوظة | Made in Morocco 🇲🇦</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
-    <script>displayLesson();</script>
+    <script src="js/premium.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            displayLessonPage();
+        });
+    </script>
 </body>
 </html>
