@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #6c757d;
+    --background-color: #ffffff;
+    --text-color: #343a40;
+    --dark-background-color: #343a40;
+    --dark-text-color: #ffffff;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+button, .btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 15px;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.level-card {
+    background: #f8f9fa;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+body.dark-mode {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+}
+
+.fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
