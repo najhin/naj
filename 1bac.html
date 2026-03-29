@@ -3,128 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="أولى باك - دروس الرياضيات | Najhin">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="دروس أولى باك - Najhin">
     <title>أولى باك - Najhin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar sticky-top">
-        <div class="container-fluid">
-            <div class="logo-section">
-                <a href="index.html" class="logo">
-                    <i class="fas fa-rocket"></i>
-                    <span>Najhin</span>
-                </a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Najhin</span>
             </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span><span></span><span></span>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navMenu">
                 <li><a href="index.html">الرئيسية</a></li>
                 <li><a href="tronc.html">جذع مشترك</a></li>
-                <li><a href="1bac.html" class="active">أولى باك</a></li>
+                <li><a href="1bac.html">أولى باك</a></li>
                 <li><a href="2bac.html">ثانية باك</a></li>
-                <li class="theme-toggle-nav">
-                    <button id="themeToggleNav" title="تبديل المظهر">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
+                <li><button id="themeToggle" title="تبديل المظهر"><i class="fas fa-moon"></i></button></li>
             </ul>
         </div>
     </nav>
 
     <!-- PAGE HEADER -->
-    <section class="page-header-section">
-        <div class="container-fluid">
-            <div class="breadcrumb">
-                <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
-                <span>/</span>
-                <span>أولى باك</span>
-            </div>
+    <section class="page-header">
+        <div class="container">
             <h1>أولى باك</h1>
-            <p>الحساب التفاضلي والمتتاليات - 4 دروس متقدمة</p>
+            <p>دروس متقدمة - 4 دروس رئيسية</p>
         </div>
     </section>
 
-    <!-- FILTER SECTION -->
-    <section class="filter-section">
-        <div class="container-fluid">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن درس...">
-            </div>
-            <div class="sort-options">
-                <select id="sortSelect" class="sort-select">
-                    <option value="popular">الأكثر شهرة</option>
-                    <option value="newest">الأحدث</option>
-                    <option value="rating">الأعلى تقييماً</option>
-                    <option value="students">الأكثر طلاباً</option>
-                </select>
-            </div>
-        </div>
-    </section>
-
-    <!-- COURSES GRID -->
-    <section class="courses-detailed">
-        <div class="container-fluid">
-            <div class="courses-grid-detailed" id="bacCourses">
-                <!-- Courses will be loaded by JavaScript -->
-            </div>
-        </div>
-    </section>
+    <!-- LESSONS GRID -->
+    <main class="container">
+        <div class="lessons-grid" id="lessonsGrid"></div>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="footer-premium">
-        <div class="container-fluid">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4><i class="fas fa-rocket"></i> Najhin</h4>
-                    <p>منصة التعليم المغربية الأولى</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>المستويات</h4>
-                    <ul>
-                        <li><a href="tronc.html">جذع مشترك</a></li>
-                        <li><a href="1bac.html">أولى باك</a></li>
-                        <li><a href="2bac.html">ثانية باك</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="#">عن Najhin</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>النشرة البريدية</h4>
-                    <input type="email" placeholder="بريدك الإلكتروني" class="email-input">
-                    <button class="btn btn-primary btn-sm">اشترك</button>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Najhin - جميع الحقوق محفوظة | Made in Morocco 🇲🇦</p>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Najhin - منصة تعليم الرياضيات. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <script src="js/premium.js"></script>
+    <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            displayLevelCourses('1bac', 'bacCourses');
-            setupSearchAndSort('1bac', 'bacCourses');
+            displayLessonsByLevel('1bac');
         });
     </script>
 </body>
