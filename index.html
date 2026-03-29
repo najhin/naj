@@ -3,196 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Najhin - منصة تعليمية متخصصة في تدريس الرياضيات للطلاب المغاربة">
-    <meta name="theme-color" content="#2563eb">
-    <title>Najhin - تعلم الرياضيات بسهولة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Najhin - أفضل منصة تعليمية مغربية | فيديوهات | أكثر من 500 درس | حي الآن">
+    <meta name="theme-color" content="#6366f1">
+    <title>Najhin - منصة التعليم المغربية الأولى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/premium.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-calculator"></i>
-                <span>Najhin</span>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container-fluid">
+            <span><i class="fas fa-star"></i> الآن متوفر - حصص حية مباشرة مع المعلمين</span>
+            <span class="close-top" onclick="this.parentElement.parentElement.style.display='none'">×</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar sticky-top">
+        <div class="container-fluid">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>Najhin</span>
+                </div>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="tronc.html">جذع مشترك</a></li>
-                <li><a href="1bac.html">أولى باك</a></li>
-                <li><a href="2bac.html">ثانية باك</a></li>
-                <li><button id="themeToggle" class="theme-toggle" title="تبديل المظهر"><i class="fas fa-moon"></i></button></li>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#courses">الدروس</a></li>
+                <li><a href="#live">حصص حية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#testimonials">آراء الطلاب</a></li>
+                <li class="theme-toggle-nav">
+                    <button id="themeToggleNav" title="تبديل المظهر">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+                <li>
+                    <a href="#auth" class="btn-auth">
+                        <i class="fas fa-sign-in-alt"></i> دخول
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <!-- HERO SECTION - ULTRA MODERN -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container-fluid">
             <div class="hero-content">
-                <h1>Najhin</h1>
-                <p class="hero-subtitle">تعلم الرياضيات بسهولة</p>
-                <p class="hero-description">منصة تعليمية متخصصة في تدريس الرياضيات للطلاب المغاربة</p>
-                <a href="#levels" class="btn btn-primary btn-lg"><i class="fas fa-arrow-down"></i> ابدأ الآن</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <h3>3</h3>
-                    <p>مستويات تعليمية</p>
-                </div>
-                <div class="stat">
-                    <h3>12+</h3>
-                    <p>درس شامل</p>
-                </div>
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>مجاني</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="container">
-            <h2>ابحث عن درسك</h2>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="ابحث عن درس..." autocomplete="off">
-                <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-            <div id="searchResults" class="search-results hidden">
-                <div id="resultsContainer"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Levels Section -->
-    <section class="levels" id="levels">
-        <div class="container">
-            <h2 class="section-title">اختر مستواك التعليمي</h2>
-            <div class="levels-grid">
-                <a href="tronc.html" class="level-card">
-                    <div class="level-icon">
-                        <i class="fas fa-book"></i>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        تعلم <span class="gradient-text">الرياضيات</span> <br>بطريقة ثورية
+                    </h1>
+                    <p class="hero-subtitle">
+                        500+ درس | حصص حية | معلمون خبراء | تمارين تفاعلية
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">طالب نشط</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">درس فيديو</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">رضا الطلاب</span>
+                        </div>
                     </div>
-                    <h3>جذع مشترك</h3>
-                    <p>المفاهيم الأساسية والمتقدمة</p>
-                    <span class="level-count">4 دروس</span>
-                    <span class="btn-link">اعرض الدروس <i class="fas fa-arrow-left"></i></span>
-                </a>
-
-                <a href="1bac.html" class="level-card">
-                    <div class="level-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg">
+                            <i class="fas fa-play-circle"></i> ابدأ الآن مجاني
+                        </button>
+                        <button class="btn btn-outline btn-lg">
+                            <i class="fas fa-video"></i> مشاهدة عرض توضيحي
+                        </button>
                     </div>
-                    <h3>أولى باك</h3>
-                    <p>الحساب التفاضلي والمتتاليات</p>
-                    <span class="level-count">4 دروس</span>
-                    <span class="btn-link">اعرض الدروس <i class="fas fa-arrow-left"></i></span>
-                </a>
+                </div>
 
-                <a href="2bac.html" class="level-card">
-                    <div class="level-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <p>الاشتقاق</p>
                     </div>
-                    <h3>ثانية باك</h3>
-                    <p>المعادلات والدوال المتقدمة</p>
-                    <span class="level-count">4 دروس</span>
-                    <span class="btn-link">اعرض الدروس <i class="fas fa-arrow-left"></i></span>
-                </a>
+                    <div class="floating-card card-2">
+                        <div class="card-icon"><i class="fas fa-function"></i></div>
+                        <p>الدوال</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <p>الإحصاء</p>
+                    </div>
+                    <div class="floating-card card-4">
+                        <div class="card-icon"><i class="fas fa-square-root-alt"></i></div>
+                        <p>الجبر</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Latest Lessons Section -->
-    <section class="latest-lessons">
-        <div class="container">
-            <h2 class="section-title">آخر الدروس</h2>
-            <div id="latestLessons" class="lessons-grid"></div>
+    <!-- QUICK STATS BANNER -->
+    <section class="quick-stats">
+        <div class="container-fluid">
+            <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-video"></i></div>
+                <h3>500+ فيديو</h3>
+                <p>دروس عالية الجودة</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>1000+ تمرين</h3>
+                <p>تفاعلية محللة</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-users"></i></div>
+                <h3>100+ معلم</h3>
+                <p>خبراء معتمدين</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-certificate"></i></div>
+                <h3>شهادات معترف</h3>
+                <p>في جميع الجامعات</p>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">لماذا تختار Najhin؟</h2>
+    <!-- COURSES SECTION - GRID MODERN -->
+    <section class="courses" id="courses">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>اختر مستواك</h2>
+                <p>محتوى شامل ومحدث لكل مستوى</p>
+            </div>
+
+            <div class="level-tabs">
+                <button class="tab-btn active" onclick="switchLevel('all')">
+                    <i class="fas fa-book"></i> الكل
+                </button>
+                <button class="tab-btn" onclick="switchLevel('tronc')">
+                    <i class="fas fa-layer-group"></i> جذع مشترك
+                </button>
+                <button class="tab-btn" onclick="switchLevel('1bac')">
+                    <i class="fas fa-graduation-cap"></i> أولى باك
+                </button>
+                <button class="tab-btn" onclick="switchLevel('2bac')">
+                    <i class="fas fa-trophy"></i> ثانية باك
+                </button>
+            </div>
+
+            <div class="courses-grid">
+                <!-- COURSE CARDS WILL BE GENERATED BY JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CLASSES SECTION -->
+    <section class="live-section" id="live">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>حصص حية الآن</h2>
+                <p>تفاعل مباشر مع معلميك</p>
+            </div>
+
+            <div class="live-classes-grid">
+                <div class="live-card live-active">
+                    <div class="live-badge">
+                        <span class="pulse"></span> LIVE
+                    </div>
+                    <div class="live-teacher">
+                        <div class="teacher-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>الأستاذ أحمد</h3>
+                            <p>شرح النهايات</p>
+                        </div>
+                    </div>
+                    <div class="live-stats">
+                        <span><i class="fas fa-users"></i> 432 متابع</span>
+                        <span><i class="fas fa-comments"></i> 89 تعليق</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm w-100">
+                        <i class="fas fa-arrow-right"></i> انضم الآن
+                    </button>
+                </div>
+
+                <div class="live-card">
+                    <div class="live-badge upcoming">ستبدأ خلال 15 دقيقة</div>
+                    <div class="live-teacher">
+                        <div class="teacher-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>الأستاذة فاطمة</h3>
+                            <p>حل التمارين</p>
+                        </div>
+                    </div>
+                    <div class="live-stats">
+                        <span><i class="fas fa-clock"></i> 15:30</span>
+                        <span><i class="fas fa-calendar"></i> اليوم</span>
+                    </div>
+                    <button class="btn btn-outline btn-sm w-100">
+                        <i class="fas fa-bell"></i> أخبرني
+                    </button>
+                </div>
+
+                <div class="live-card">
+                    <div class="live-badge recorded">مسجل</div>
+                    <div class="live-teacher">
+                        <div class="teacher-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>الأستاذ محمد</h3>
+                            <p>الاشتقاق - جزء 2</p>
+                        </div>
+                    </div>
+                    <div class="live-stats">
+                        <span><i class="fas fa-play"></i> 2.3K مشاهدة</span>
+                        <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm w-100">
+                        <i class="fas fa-play"></i> مشاهدة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION - PREMIUM -->
+    <section class="features" id="features">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>لماذا Najhin؟</h2>
+                <p>كل ما تحتاجه لنجاح أكاديمي</p>
+            </div>
+
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-video"></i>
-                    <h3>فيديوهات شرح</h3>
-                    <p>شروح مفصلة وسهلة الفهم</p>
+                    <div class="feature-icon"><i class="fas fa-play-circle"></i></div>
+                    <h3>فيديوهات عالية الجودة</h3>
+                    <p>شروح مفصلة من معلمين متخصصين بدقة عالية 4K</p>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-file-pdf"></i>
+                    <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>تمارين تفاعلية</h3>
+                    <p>حل فوري مع تصحيح ذكي وشرح الأخطاء</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>تحليل التقدم</h3>
+                    <p>تتبع تقدمك مع تقارير مفصلة وإحصائيات</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>مجتمع طلاب</h3>
+                    <p>تفاعل مع آلاف الطلاب وشارك الحلول</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                    <h3>نظام النقاط</h3>
+                    <p>اكسب نقاط وشارات وتنافس على الترتيب</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-download"></i></div>
                     <h3>ملخصات PDF</h3>
-                    <p>ملخصات شاملة وقابلة للتحميل</p>
+                    <p>ملخصات شاملة قابلة للتحميل والطباعة</p>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>متوافق مع الهاتف</h3>
-                    <p>تعلم في أي وقت وأي مكان</p>
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>تعلم بسرعتك</h3>
+                    <p>إعادة مشاهدة الفيديوهات في أي وقت</p>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-star"></i>
-                    <h3>محتوى احترافي</h3>
-                    <p>محتوى معد من معلمين خبراء</p>
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <h3>آمن وخصوصي</h3>
+                    <p>بيانات محمية بتشفير عالي المستوى</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>هل أنت مستعد للبدء؟</h2>
-            <p>اختر مستواك وابدأ رحلتك التعليمية الآن</p>
-            <div class="cta-buttons">
-                <a href="tronc.html" class="btn btn-primary">جذع مشترك</a>
-                <a href="1bac.html" class="btn btn-secondary">أولى باك</a>
-                <a href="2bac.html" class="btn btn-secondary">ثانية باك</a>
+    <!-- GAMIFICATION SECTION -->
+    <section class="gamification">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>نظام التحفيز والنقاط</h2>
+                <p>تعلم وتنافس واكسب جوائز</p>
+            </div>
+
+            <div class="gamification-grid">
+                <div class="gamification-card">
+                    <div class="gamification-icon badges">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>الشارات</h3>
+                    <p>اكسب شارات بإنجازك</p>
+                    <div class="badges-showcase">
+                        <span class="badge"><i class="fas fa-star"></i></span>
+                        <span class="badge"><i class="fas fa-flame"></i></span>
+                        <span class="badge"><i class="fas fa-crown"></i></span>
+                    </div>
+                </div>
+
+                <div class="gamification-card">
+                    <div class="gamification-icon leaderboard">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    <h3>لوحة الترتيب</h3>
+                    <p>تنافس مع الطلاب الآخرين</p>
+                    <div class="mini-leaderboard">
+                        <div class="leaderboard-item">
+                            <span class="rank">1</span>
+                            <span class="name">أحمد</span>
+                            <span class="points">2,450</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="rank">2</span>
+                            <span class="name">فاطمة</span>
+                            <span class="points">2,130</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="rank">3</span>
+                            <span class="name">محمد</span>
+                            <span class="points">1,950</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gamification-card">
+                    <div class="gamification-icon streaks">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>متابعة يومية</h3>
+                    <p>حافظ على متابعتك اليومية</p>
+                    <div class="streak-counter">
+                        <span class="streak-number">15</span>
+                        <span class="streak-label">يوم متتالي</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>ماذا يقول طلابنا؟</h2>
+                <p>نحن فخورون بنتائج طلابنا</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Najhin غيرت طريقة تعلمي. الآن أفهم الرياضيات بسهولة!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س</div>
+                        <div>
+                            <h4>سارة محمدي</h4>
+                            <p>ثانية باك - 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"أفضل منصة تعليمية في المغرب. جودة الشروح ممتازة جداً."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ع</div>
+                        <div>
+                            <h4>عمر البيضاوي</h4>
+                            <p>أولى باك - 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"الحصص الحية مفيدة جداً. المعلمون يجيبون على جميع أسئلتي."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ل</div>
+                        <div>
+                            <h4>لميس الحسني</h4>
+                            <p>جذع مشترك - 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-premium">
+        <div class="container-fluid">
+            <div class="cta-content">
+                <h2>جاهز لتحويل درجاتك؟</h2>
+                <p>انضم إلى آلاف الطلاب الناجحين الآن</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> ابدأ الآن مجاني
+                    </button>
+                    <button class="btn btn-light btn-lg">
+                        <i class="fas fa-calendar"></i> احجز استشارة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-premium">
+        <div class="container-fluid">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>Najhin</h4>
-                    <p>منصة تعليمية متخصصة في تدريس الرياضيات للطلاب المغاربة</p>
+                    <h4><i class="fas fa-rocket"></i> Najhin</h4>
+                    <p>منصة التعليم المغربية الأولى</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h4>الروابط</h4>
+                    <h4>الدروس</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="tronc.html">جذع مشترك</a></li>
-                        <li><a href="1bac.html">أولى باك</a></li>
-                        <li><a href="2bac.html">ثانية باك</a></li>
+                        <li><a href="#">جذع مش��رك</a></li>
+                        <li><a href="#">أولى باك</a></li>
+                        <li><a href="#">ثانية باك</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>تابعنا</h4>
-                    <div class="social-links">
-                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <h4>المساعدة</h4>
+                    <ul>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الشروط</a></li>
+                        <li><a href="#">السياسة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>البريد الإلكتروني</h4>
+                    <input type="email" placeholder="بريدك الإلكتروني" class="email-input">
+                    <button class="btn btn-primary btn-sm">اشترك</button>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Najhin - جميع الحقوق محفوظة</p>
+                <p>&copy; 2026 Najhin - جميع الحقوق محفوظة | Made in Morocco 🇲🇦</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/premium.js"></script>
 </body>
 </html>
