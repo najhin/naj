@@ -90,24 +90,34 @@ function displayLesson() {
     const levelPageMap = { tronc: 'tronc.html', '1bac': '1bac.html', '2bac': '2bac.html' };
     
     // Update DOM
-    document.getElementById('levelLink').href = levelPageMap[lesson.level];
-    document.getElementById('levelLink').textContent = levelMap[lesson.level];
-    document.getElementById('lessonTitle').textContent = lesson.title;
-    document.getElementById('lessonMainTitle').textContent = lesson.title;
-    document.getElementById('lessonDescription').textContent = lesson.description;
-    document.getElementById('levelBadge').textContent = lesson.levelName;
-    document.getElementById('categoryBadge').textContent = lesson.category;
-    document.getElementById('lessonVideo').src = lesson.videoUrl;
-    document.getElementById('pdfDownload').href = lesson.pdfPath;
-    document.getElementById('pdfView').href = lesson.pdfPath;
-    document.getElementById('infoLevel').textContent = lesson.levelName;
-    document.getElementById('infoCategory').textContent = lesson.category;
-    document.getElementById('backToLevel').href = levelPageMap[lesson.level];
+    const levelLink = document.getElementById('levelLink');
+    const lessonTitle = document.getElementById('lessonTitle');
+    const lessonMainTitle = document.getElementById('lessonMainTitle');
+    const lessonDescription = document.getElementById('lessonDescription');
+    const levelBadge = document.getElementById('levelBadge');
+    const categoryBadge = document.getElementById('categoryBadge');
+    const lessonVideo = document.getElementById('lessonVideo');
+    const pdfDownload = document.getElementById('pdfDownload');
+    const pdfView = document.getElementById('pdfView');
+    const infoLevel = document.getElementById('infoLevel');
+    const infoCategory = document.getElementById('infoCategory');
+    const backToLevel = document.getElementById('backToLevel');
+    const relatedLessons = document.getElementById('relatedLessons');
     
-    // Related lessons
-    const related = document.getElementById('relatedLessons');
-    if (related) {
-        related.innerHTML = getRelatedLessons(lesson).map(createLessonCard).join('');
+    if (levelLink) { levelLink.href = levelPageMap[lesson.level]; levelLink.textContent = levelMap[lesson.level]; }
+    if (lessonTitle) lessonTitle.textContent = lesson.title;
+    if (lessonMainTitle) lessonMainTitle.textContent = lesson.title;
+    if (lessonDescription) lessonDescription.textContent = lesson.description;
+    if (levelBadge) levelBadge.textContent = lesson.levelName;
+    if (categoryBadge) categoryBadge.textContent = lesson.category;
+    if (lessonVideo) lessonVideo.src = lesson.videoUrl;
+    if (pdfDownload) pdfDownload.href = lesson.pdfPath;
+    if (pdfView) pdfView.href = lesson.pdfPath;
+    if (infoLevel) infoLevel.textContent = lesson.levelName;
+    if (infoCategory) infoCategory.textContent = lesson.category;
+    if (backToLevel) backToLevel.href = levelPageMap[lesson.level];
+    if (relatedLessons) {
+        relatedLessons.innerHTML = getRelatedLessons(lesson).map(createLessonCard).join('');
     }
 }
 
@@ -118,7 +128,6 @@ function setupSearch() {
     
     const searchBtn = document.querySelector('.search-btn');
     const resultsDiv = document.getElementById('searchResults');
-    const mainContent = document.querySelector('.levels');
     const container = document.getElementById('resultsContainer');
     
     const search = () => {
@@ -145,14 +154,16 @@ function setupTheme() {
     const toggle = document.getElementById('themeToggle');
     if (!toggle) return;
     
-    const theme = localStorage.getItem('theme') || 'dark';
-    if (theme === 'light') {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
         document.body.classList.add('dark-mode');
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
     
     toggle.addEventListener('click', () => {
         const isDark = document.body.classList.toggle('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
 }
 
@@ -181,4 +192,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTheme();
     setupMobileMenu();
     displayLatestLessons();
+    displayLesson();
 });
